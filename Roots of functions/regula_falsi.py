@@ -2,16 +2,15 @@ import numpy as np
 
 # Just change the function to whatever you need to find the root of
 def fx(x):
-    return x**3 - x - 1
+   return x*np.exp(x) - np.cos(x)
 
-# Performs bisection method
-def bisection_method(a, b, accuracy):
+def regula_falsi_method(a, b, accuracy):
     i = 0
     x = []
     while True:
         print("ITERATION " + str(i+1))
         print("a = " + str(a) + " , b = ", str(b))
-        x.append((a+b)/2)
+        x.append(((a*fx(b)) - (b*fx(a)))/(fx(b) - fx(a)))
         xval = 'x' + str(i) + '='
         print()
         print(xval, end='')
@@ -37,7 +36,6 @@ def bisection_method(a, b, accuracy):
         print()
         i += 1
     return
-        
 
 def main():
 
@@ -49,7 +47,7 @@ def main():
     print()
     print()
 
-    bisection_method(a,b,accuracy)
+    regula_falsi_method(a,b,accuracy)
 
 if __name__=="__main__":
     main()
