@@ -2,7 +2,7 @@ import numpy as np
 
 # Just change the function to whatever you need to find the root of
 def fx(x):
-   return x*np.exp(x) - np.cos(x)
+   return x**6 - x**4 - x**3 - 1
 
 def regula_falsi_method(a, b, accuracy):
     i = 0
